@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PollVoteApp</title>
+</head>
+<body>
+
+<h1>Welcome to the PollVote Application </h1>
+
+<div id="auth-container">
+  <div id="auth-logged-out">
+    <h3>Login / Register</h3>
+    <label>Username:</label><br>
+    <input type="text" id="auth-username" placeholder="Username"><br><br>
+    <label>Password:</label><br>
+    <input type="password" id="auth-password" placeholder="Password"><br><br>
+    <button type="button" onclick="login()">Login</button>
+    <button type="button" onclick="register()">Register</button>
+  </div>
+
+  <div id="auth-logged-in" style="display: none;">
+    <p>Logged in as: <b id="logged-username"></b> <button type="button" onclick="logout()">Logout</button></p>
+  </div>
+</div>
+
+<br>
+<hr>
+<br>
+
+<label>Select the NAME of the poll:</label><br>
+<input type="text" id="pollname" name="pollname" placeholder="Poll name"><br><br>
+<label>Select the OPTIONS of the poll:</label><br>
+<input type="text" id="firstoption" name="firstoption" placeholder="First Option"><br><br>
+<input type="text" id="secondoption" name="secondoption" placeholder="Second Option"><br><br>
+<button type="button" onclick="newPoll()">Submit your Poll</button><br><br>
+
+<br>
+<hr>
+<br>
+
+<label>If you want to see the other polls click the button: </label>
+<button type="button" id="lbllist" onclick="pollsfetch()">All the polls</button><br><br>
+
+<div id="pollslist"></div>
+
+<script src="app.js"></script>
+<br><br>
+</body>
+</html>
