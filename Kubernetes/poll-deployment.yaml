@@ -21,7 +21,6 @@ spec:
         ports:
         - containerPort: 8001
         env:
-          # Connessione al servizio MongoDB interno al cluster
           - name: MONGO_URI
             value: "mongodb://mongo:27017"
           #secret key to validate the JWT token from the author of the poll
