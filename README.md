@@ -12,6 +12,11 @@ Handles the registration and the login of the user. Saves the cyphered passwords
 -	 Vote Service (`Containers/VoteService`):
 Handles the polls votes, also verifies on MongoDB if the user has already voted to that specific poll. The port for this microservice is the 8002.
 
+-  Poll Service (`Containers/PollService`): 
+It’s responsible for managing the complete lifecycle of polls by handling the creation of new 
+polls and allowing clients to retrieve active polls and their current standings from MongoDB. 
+The port for this microservice is the 8001.
+
 -	Frontend (`Containers/Frontend`)
 Serviced static application serviced with Nginx (internal port 80 exposed on 9090). It’s composed of the login, registration, creation of the polls and voting parts. Also shows the status of the different polls votes to the user.
 
