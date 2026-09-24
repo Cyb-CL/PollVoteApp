@@ -27,11 +27,9 @@ position yourself in the PollVoteApp main folder and execute the following comma
 Step 1: Run the Setup Script
 Navigate to the root folder of the project in your terminal and run:
 
-bash
-# Universal command (runs on Linux, macOS, and Windows without requiring any permission changes):
 bash setup.sh
 
-# Optional: rebuild images locally before deploying
+-- Optional: rebuild images locally before deploying
 bash setup.sh --build
 (If the repository was cloned via Git, `./setup.sh` also works directly).
 
