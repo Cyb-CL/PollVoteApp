@@ -1,0 +1,30 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poll-deployment
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: poll-service
+  template:
+    metadata:
+      labels:
+        app: poll-service
+    spec:
+      containers:
+      - name: poll-service
+        image: leco26/poll-service:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8001
+        env:
+          # Connessione al servizio MongoDB interno al cluster
+          - name: MONGO_URI
+            value: "mongodb://mongo:27017"
+          #secret key to validate the JWT token from the author of the poll
+          - name: JWT_SECRET
+            value: "secretkey-pollvoteapp"
+---

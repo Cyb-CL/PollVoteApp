@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: poll-service
+spec:
+  selector:
+    app: poll-service
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8001
+    targetPort: 8001
+---

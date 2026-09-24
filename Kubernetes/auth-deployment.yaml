@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+      - name: auth-service
+        image: leco26/auth-service:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8003
+        env:
+          - name: MONGO_URI
+            value: "mongodb://mongo:27017"
+            #secret key
+          - name: JWT_SECRET
+            value: "secretkey-pollvoteapp"
+---

@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote-deployment
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: vote-service
+  template:
+    metadata:
+      labels:
+        app: vote-service
+    spec:
+      containers:
+      - name: vote-service
+        image: leco26/vote-service:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8002
+        env:
+          - name: MONGO_URI
+            value: "mongodb://mongo:27017"
+          - name: JWT_SECRET
+            value: "secretkey-pollvoteapp"
+---
